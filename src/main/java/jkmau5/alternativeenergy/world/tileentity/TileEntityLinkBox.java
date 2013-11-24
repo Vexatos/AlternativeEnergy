@@ -1,7 +1,7 @@
 package jkmau5.alternativeenergy.world.tileentity;
 
-import jkmau5.alternativeenergy.AltEngCompat;
 import jkmau5.alternativeenergy.Config;
+import jkmau5.alternativeenergy.compat.AltEngCompat;
 import jkmau5.alternativeenergy.gui.EnumGui;
 import jkmau5.alternativeenergy.gui.GuiHandler;
 import jkmau5.alternativeenergy.gui.button.LockButtonState;

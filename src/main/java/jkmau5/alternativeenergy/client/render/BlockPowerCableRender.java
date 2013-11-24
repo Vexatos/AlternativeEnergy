@@ -9,11 +9,9 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.ForgeDirection;
 
 /**
- * Author: Lordmau5
- * Date: 31.10.13
- * Time: 22:20
- * You are allowed to change this code,
- * however, not to publish it without my permission.
+ * Block renderer for the powercable
+ *
+ * @author jk-5
  */
 public class BlockPowerCableRender implements ISimpleBlockRenderingHandler {
 

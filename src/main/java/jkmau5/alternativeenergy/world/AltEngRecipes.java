@@ -1,7 +1,7 @@
 package jkmau5.alternativeenergy.world;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import jkmau5.alternativeenergy.AltEngCompat;
+import jkmau5.alternativeenergy.compat.AltEngCompat;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 

@@ -1,4 +1,4 @@
-package jkmau5.alternativeenergy;
+package jkmau5.alternativeenergy.compat;
 
 import buildcraft.api.power.IPowerReceptor;
 import buildcraft.api.tools.IToolWrench;

@@ -1,6 +1,6 @@
 package jkmau5.alternativeenergy.gui.container;
 
-import jkmau5.alternativeenergy.AltEngCompat;
+import jkmau5.alternativeenergy.compat.AltEngCompat;
 import jkmau5.alternativeenergy.gui.container.slot.SlotCapacityUpgrade;
 import jkmau5.alternativeenergy.gui.container.slot.SlotElectricItemCharge;
 import jkmau5.alternativeenergy.gui.container.slot.SlotOutputSpeedUpgrade;

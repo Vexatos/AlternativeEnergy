@@ -2,9 +2,9 @@ package jkmau5.alternativeenergy.world.blocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import jkmau5.alternativeenergy.AltEngCompat;
 import jkmau5.alternativeenergy.Constants;
 import jkmau5.alternativeenergy.client.render.RenderIDs;
+import jkmau5.alternativeenergy.compat.AltEngCompat;
 import jkmau5.alternativeenergy.world.tileentity.TileEntityPowerCable;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;

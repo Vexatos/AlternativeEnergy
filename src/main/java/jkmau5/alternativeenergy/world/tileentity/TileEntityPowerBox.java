@@ -1,7 +1,7 @@
 package jkmau5.alternativeenergy.world.tileentity;
 
 import cpw.mods.fml.common.Optional;
-import jkmau5.alternativeenergy.AltEngCompat;
+import jkmau5.alternativeenergy.compat.AltEngCompat;
 import jkmau5.alternativeenergy.gui.EnumGui;
 import jkmau5.alternativeenergy.gui.GuiHandler;
 import jkmau5.alternativeenergy.inventory.InventoryObject;

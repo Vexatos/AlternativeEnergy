@@ -13,6 +13,9 @@ buildscript {
 
 repositories {
     mavenCentral()
+    ivy {
+        artifactPattern "http://files.minecraftforge.net/[module]/[module]-dev-[revision].[ext]"
+    }
 }
 
 apply plugin: 'forge'
@@ -28,6 +31,9 @@ minecraft{
 
 dependencies {
     compile 'org.projectlombok:lombok:1.12.2'
+
+    compile name: 'ForgeMultipart', version: '1.6.4-1.0.0.211', ext: 'jar'
+    compile name: 'CodeChickenLib', version: '1.6.4-1.0.0.44', ext: 'jar'
 }
 
 task wrapper(type: Wrapper) {

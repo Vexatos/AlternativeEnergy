@@ -8,7 +8,7 @@ import ic2.api.energy.event.EnergyTileLoadEvent;
 import ic2.api.energy.event.EnergyTileUnloadEvent;
 import ic2.api.energy.tile.IEnergySink;
 import ic2.api.tile.IEnergyStorage;
-import jkmau5.alternativeenergy.AltEngCompat;
+import jkmau5.alternativeenergy.compat.AltEngCompat;
 import jkmau5.alternativeenergy.power.EnergyNetwork;
 import jkmau5.alternativeenergy.power.Ratios;
 import jkmau5.alternativeenergy.util.CableConnectionMatrix;

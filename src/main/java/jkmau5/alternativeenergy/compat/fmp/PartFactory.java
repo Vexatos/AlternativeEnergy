@@ -23,14 +23,14 @@ public class PartFactory implements MultiPartRegistry.IPartFactory, MultiPartReg
         int id = world.getBlockId(pos.x, pos.y, pos.z);
         int meta = world.getBlockMetadata(pos.x, pos.y, pos.z);
         if(id == AltEngBlocks.blockPowerCable.blockID){
-            return new CablePart();
+            return new CablePart(meta);
         }
         return null;
     }
 
     @Override
     public TMultiPart createPart(String name, boolean client) {
-        if(name.equals("altEng_powerCable")) return new CablePart();
+        if(name.equals("altEng:powerCable")) return new CablePart();
         return null;
     }
 }

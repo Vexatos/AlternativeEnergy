@@ -24,7 +24,7 @@ public class PluginForgeMultipart implements ICompatPlugin {
     public void init() {
         PartFactory factory = new PartFactory();
         MultiPartRegistry.registerConverter(factory);
-        MultiPartRegistry.registerParts(factory, new String[]{"altEng_powerCable"});
+        MultiPartRegistry.registerParts(factory, new String[]{"altEng:powerCable"});
     }
 
     @Override

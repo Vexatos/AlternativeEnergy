@@ -2,15 +2,18 @@ package jkmau5.alternativeenergy.world.tileentity;
 
 import buildcraft.api.power.IPowerReceptor;
 import buildcraft.api.power.PowerHandler;
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Optional;
 import ic2.api.energy.event.EnergyTileLoadEvent;
 import ic2.api.energy.event.EnergyTileUnloadEvent;
 import ic2.api.energy.tile.IEnergySink;
 import ic2.api.tile.IEnergyStorage;
 import jkmau5.alternativeenergy.compat.AltEngCompat;
+import jkmau5.alternativeenergy.compat.fmp.CableHandlerMultipart;
 import jkmau5.alternativeenergy.power.EnergyNetwork;
 import jkmau5.alternativeenergy.power.Ratios;
 import jkmau5.alternativeenergy.util.CableConnectionMatrix;
+import jkmau5.alternativeenergy.util.CableHandlerBase;
 import jkmau5.alternativeenergy.util.EnumOutputMode;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -31,6 +34,17 @@ import net.minecraftforge.common.MinecraftForge;
         @Optional.Interface(iface = "buildcraft.api.power.IPowerReceptor", modid = "BuildCraft|Energy")
 })
 public class TileEntityPowerCable extends AltEngTileEntity implements IEnergyStorage, IEnergySink, IPowerReceptor {
+
+    public static final CableHandlerBase cableHandler;
+
+    static {
+        if(Loader.isModLoaded("ForgeMultipart")){
+            cableHandler = new CableHandlerMultipart();
+        }else{
+            cableHandler = new CableHandlerBase();
+        }
+    }
+
     EnergyNetwork network;
     boolean initialized;
     boolean addedToENet;

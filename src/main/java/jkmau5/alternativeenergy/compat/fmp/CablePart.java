@@ -46,12 +46,12 @@ public class CablePart extends McMetaPart implements IHollowConnect {
 
     @Override
     public Iterable<Cuboid6> getOcclusionBoxes() {
-        return Arrays.asList(new Cuboid6(0.375D, 0.375D, 0.375D, 0.625D, 0.625D, 0.625D));
+        return Arrays.asList(new Cuboid6(0.355F, 0.355F, 0.355F, 0.645F, 0.645F, 0.645F));
     }
 
     @Override
     public Cuboid6 getBounds() {
-        return new Cuboid6(0.375D, 0.375D, 0.375D, 0.625D, 0.625D, 0.625D);
+        return new Cuboid6(0.355F, 0.355F, 0.355F, 0.645F, 0.645F, 0.645F);
     }
 
     @Override
@@ -61,7 +61,7 @@ public class CablePart extends McMetaPart implements IHollowConnect {
 
         //((BlockPowerCable) AltEngBlocks.blockPowerCable).addCollisionBoxesToList(this.getWorld(), this.x(), this.y(), this.z());
         //TODO fix this
-        return Arrays.asList(new Cuboid6(0.375D, 0.375D, 0.375D, 0.625D, 0.625D, 0.625D));
+        return Arrays.asList(new Cuboid6(0.355F, 0.355F, 0.355F, 0.645F, 0.645F, 0.645F));
     }
 
     @Override

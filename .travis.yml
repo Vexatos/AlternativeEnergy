@@ -1,0 +1,12 @@
+---
+jdk:
+  - oraclejdk7
+  - openjdk7
+  - openjdk6
+before_script:
+  - "wget http://repo.gradle.org/gradle/distributions/gradle-1.0-milestone-7-bin.zip"
+  - "unzip gradle-1.0* > /dev/null"
+script: "gradle-1.0*/bin/gradle -q setupCIWorkspace build"
+notifications:
+  irc: "irc.esper.net#AlternativeEnergy"
+  irc: "irc.reening.nl#server"

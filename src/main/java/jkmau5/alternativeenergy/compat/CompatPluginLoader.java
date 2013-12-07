@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import cpw.mods.fml.common.Loader;
 import jkmau5.alternativeenergy.AltEngLog;
 import jkmau5.alternativeenergy.compat.fmp.PluginForgeMultipart;
+import jkmau5.alternativeenergy.compat.waila.PluginWaila;
 import lombok.Getter;
 
 import java.util.List;
@@ -31,8 +32,7 @@ public class CompatPluginLoader {
         if (Loader.isModLoaded(plugin.getModID())){
             AltEngLog.info("Loading compat plugin for %s", plugin.getModID());
             this.plugins.add(plugin);
-
-            switch (currPhase){ //We'll have to catch up, if an plugin is registered late
+            switch (currPhase){
                 case DONE:
                 case POSTINIT:
                     plugin.preInit();
@@ -69,6 +69,7 @@ public class CompatPluginLoader {
     }
 
     public void registerBuiltInPlugins(){
-        registerPlugin(new PluginForgeMultipart());
+        this.registerPlugin(new PluginWaila());
+        this.registerPlugin(new PluginForgeMultipart());
     }
 }

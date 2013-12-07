@@ -20,7 +20,7 @@ public class BlockPowerCableRender implements ISimpleBlockRenderingHandler {
     }
 
     @Override
-    public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer){
+    public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
         float min = 0.355F;
         float max = 0.645F;
         renderer.setRenderBounds(min, min, min, max, max, max);
@@ -48,12 +48,12 @@ public class BlockPowerCableRender implements ISimpleBlockRenderingHandler {
         return true;
     }
 
-    public boolean shouldRender3DInInventory(){
+    public boolean shouldRender3DInInventory() {
         return false;
     }
 
     @Override
-    public int getRenderId(){
+    public int getRenderId() {
         return RenderIDs.POWERCABLE.getRenderID();
     }
 }

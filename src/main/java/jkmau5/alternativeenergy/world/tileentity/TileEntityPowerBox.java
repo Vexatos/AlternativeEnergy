@@ -10,8 +10,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ChatMessageComponent;
-import net.minecraftforge.common.ForgeDirection;
 
 /**
  * Author: Lordmau5
@@ -29,7 +27,10 @@ public class TileEntityPowerBox extends TileEntityPowerStorage implements IInven
 
     @Override
     public void constructFromItemStack(ItemStack itemStack, EntityLivingBase entity) {
-        if(itemStack.getTagCompound() == null || !itemStack.getTagCompound().hasKey("storedPower")) return;
+        if(itemStack.getTagCompound() == null || !itemStack.getTagCompound().hasKey("capacityUpgrade")) {
+            return;
+        }
+
         if(itemStack.getTagCompound().hasKey("capacityUpgrade")) {
             /*pBox.capacitySlot.put(new ItemStack(AltEngItems.itemUpgrade, itemStack.getTagCompound().getInteger("capacityUpgrade"), 0));
 
@@ -37,17 +38,9 @@ public class TileEntityPowerBox extends TileEntityPowerStorage implements IInven
                 pBox.maxPowers += i * Config.powerBox_capacity_multiplier;
             }*/
         }
-        if(itemStack.getTagCompound().hasKey("outputSpeedUpgrade")) {
-            /*pBox.outputSpeedSlot.put(new ItemStack(AltEngItems.itemUpgrade, itemStack.getTagCompound().getInteger("outputSpeedUpgrade"), 1));
-
-            int tmpOutput = 32 * (4 ^ pBox.outputSpeedSlot.get().stackSize);
-            if(tmpOutput > 512) tmpOutput = 512;
-            pBox.maxOutput = tmpOutput;*/
-        }
-        this.setPowerStored(itemStack.getTagCompound().getInteger("storedPower"));
     }
 
-    public String getType(){
+    public String getType() {
         return "powerBox";
     }
 
@@ -55,23 +48,6 @@ public class TileEntityPowerBox extends TileEntityPowerStorage implements IInven
     public boolean openGui(EntityPlayer player) {
         GuiHandler.openGui(EnumGui.POWERBOX, player, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
         return true;
-    }
-
-    @Override
-    public boolean blockActivated(EntityPlayer player, int sideHit) {
-        if(player.getHeldItem() != null && AltEngCompat.isWrench(player.getHeldItem())) {
-            ForgeDirection side = ForgeDirection.getOrientation(sideHit);
-            if(this.worldObj.isRemote) return true;
-            if(player.isSneaking()) {
-                return false;
-            }else{
-                this.setMode(side, this.getNextMode(this.getMode(side)));
-                ChatMessageComponent component = ChatMessageComponent.createFromTranslationWithSubstitutions("altEng.chatmessage.storageSideModeChanged", this.getMode(side).toString().toLowerCase());
-                player.sendChatToPlayer(component);
-                return true;
-            }
-        }
-        return super.blockActivated(player, sideHit);
     }
 
     @Override
@@ -83,11 +59,13 @@ public class TileEntityPowerBox extends TileEntityPowerStorage implements IInven
     }
 
     @Override
-    public void updateEntity(){
+    public void updateEntity() {
         super.updateEntity();
-        if(worldObj == null || worldObj.isRemote) return;
+        if(worldObj == null || worldObj.isRemote) {
+            return;
+        }
 
-        if(AltEngCompat.hasIC2){
+        if(AltEngCompat.hasIC2) {
             fill_chargeSlot();
             empty_dischargeSlot();
         }

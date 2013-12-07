@@ -17,7 +17,7 @@ import jkmau5.alternativeenergy.world.item.AltEngItems;
 import jkmau5.alternativeenergy.world.tileentity.AltEngTileEntities;
 import lombok.Getter;
 
-@Mod(modid = "AlternativeEnergy", dependencies = "required-after:Forge@[9.11.1.942,);after:IC2;after:BuildCraft|Core;after:ComputerCraft")
+@Mod(modid = "AlternativeEnergy", dependencies = "required-after:Forge@[9.11.1.942,);after:IC2;after:BuildCraft|Core;after:ComputerCraft;after:BiblioCraft;after:CarpentersBlocks")
 @NetworkMod
 public class AlternativeEnergy {
 
@@ -38,7 +38,7 @@ public class AlternativeEnergy {
 
     @SuppressWarnings("unused")
     @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event){
+    public void preInit(FMLPreInitializationEvent event) {
         this.config = new ConfigFile(event.getSuggestedConfigurationFile()).setComment("AlternativeEnergy main config file");
 
         this.creativeTab = new AltEngCreativeTab();
@@ -68,7 +68,7 @@ public class AlternativeEnergy {
 
     @SuppressWarnings("unused")
     @Mod.EventHandler
-    public void postInit(FMLPostInitializationEvent event){
+    public void postInit(FMLPostInitializationEvent event) {
         CompatPluginLoader.getInstance().postInit();
         proxy.registerRenderers();
         AltEngCompat.checkCompat();
